@@ -7,14 +7,23 @@
             <!-- 어썸 아이콘 -->
             <i class="addbtn fas fa-plus" aria-hidden="true"></i> 
         </span>
+
+        <AlertModal v-if="showModal" @close="showModal=false">
+            <template #header>
+                <h3>경고</h3>
+            </template>
+        </AlertModal>
     </div>
 </template>
 
 <script>
+import AlertModal from './common/AlertModal.vue';
+
 export default {
     data() {
         return{
-            newTodoItem: ''
+            newTodoItem: '',
+            showModal: false
         }
     },
     methods: {
@@ -24,11 +33,16 @@ export default {
                 // 상위 컴포넌트에 이벤트 관련하여 전달할 때 this.$emit을 사용, v-on이 있는 상위 컴포넌트로 신호를 보낸다. 
                 this.$emit('addTodo', value);
                 this.clearInput();
+            }else{
+                this.showModal = !this.showModal;
             }
         },
         clearInput() {
             this.newTodoItem = "";
         }
+    },
+    components: {
+        AlertModal: AlertModal
     }
 }
 </script>
