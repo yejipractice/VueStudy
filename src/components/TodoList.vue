@@ -2,11 +2,11 @@
     <section>
         <ul>
             <!-- v-for 에서 key 설정 안해주면 eslint error 발생 -->
-           <li v-for="todoItem, key in todoItems" :key="key" class="shadow">
+           <li v-for="(todoItem, index) in todoItems" :key="todoItem" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
                 {{ todoItem }}
                 
-                <span class="removeBtn" type="button" @click="removeTodo">
+                <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
             </li> 
@@ -22,8 +22,8 @@ export default {
         }
     }, 
     methods: {
-        removeTodo() {
-            console.log("clicked");
+        removeTodo(todoItem, index) {
+            console.log("clicked", todoItem, index);
         }
     },
     // 라이프 사이클 훅
