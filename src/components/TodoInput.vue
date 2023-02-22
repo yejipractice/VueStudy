@@ -3,7 +3,7 @@
         <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" 
         placeholder="Type What you have to do">
         <!-- 버튼 대신 이벤트 받을 태그 -->
-        <span class="addContainer" v-on:click="newTodoItem"> 
+        <span class="addContainer" v-on:click="addTodo"> 
             <!-- 어썸 아이콘 -->
             <i class="addbtn fas fa-plus" aria-hidden="true"></i> 
         </span>
