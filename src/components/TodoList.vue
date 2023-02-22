@@ -24,6 +24,8 @@ export default {
     methods: {
         removeTodo(todoItem, index) {
             console.log("clicked", todoItem, index);
+            localStorage.removeItem(todoItem);
+            this.todoItems.splice(index, 1);  // 배열의 특정 인덱스에서 부여한 숫자 개수만큼 인덱스 및 값 삭제
         }
     },
     // 라이프 사이클 훅
