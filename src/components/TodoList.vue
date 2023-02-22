@@ -1,7 +1,9 @@
 <template>
     <section>
-        <ul>
-            <!-- v-for 에서 key 설정 안해주면 eslint error 발생 -->
+        <!-- transition-group 태그는 애니메이션을 추가할 때 사용되는 태그, 태그 속석에 html 태그 속성 지정,
+        name에는 css 클래스 지정 -->
+        <transition-group name="list" tag="ul">
+            <!-- v-for 에서 key 설정 안해주면 eslint error 발생, key를 설정해주면 돔 이동 효율적 --> 
            <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
                 {{ todoItem }}
@@ -10,7 +12,7 @@
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
             </li> 
-        </ul>
+        </transition-group>
     </section>
 </template>
 
@@ -57,5 +59,16 @@ export default {
     .removeBtn{
         margin-left: auto;
         columns: #de4343;
+    }
+</style>
+
+<!-- 애니메이션 관련 css 추가, css 이해는 안되는데......  -->
+<style scoped>
+    .list-enter-active, .list-leave-active {
+        transition: all 1s;
+    }
+    .list-enter, .list-leave-to {
+        opacity: 0;
+        transform: translate(30px);
     }
 </style>
