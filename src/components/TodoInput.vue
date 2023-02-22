@@ -1,6 +1,6 @@
 <template>
     <div class="inputBox shadow">
-        <input type="text" v-model="newTodoItem" v-on:keyup.enter="newTodoItem" 
+        <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo" 
         placeholder="Type What you have to do">
         <!-- 버튼 대신 이벤트 받을 태그 -->
         <span class="addContainer" v-on:click="newTodoItem"> 
