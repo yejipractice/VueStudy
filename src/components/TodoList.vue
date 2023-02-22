@@ -2,7 +2,7 @@
     <section>
         <ul>
             <!-- v-for 에서 key 설정 안해주면 eslint error 발생 -->
-           <li v-for="(todoItem, index) in todoItems" :key="todoItem" class="shadow">
+           <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
                 {{ todoItem }}
                 
@@ -16,11 +16,7 @@
 
 <script>
 export default {
-    data() {
-        return {
-            todoItems: []
-        }
-    }, 
+    props: ['propsdata'],
     methods: {
         removeTodo(todoItem, index) {
             console.log("clicked", todoItem, index);
@@ -28,15 +24,6 @@ export default {
             this.todoItems.splice(index, 1);  // 배열의 특정 인덱스에서 부여한 숫자 개수만큼 인덱스 및 값 삭제
         }
     },
-    // 라이프 사이클 훅
-    created () {
-        if(localStorage.length>0) {
-            for(var i = 0; i < localStorage.length; i++) {
-                this.todoItems.push(localStorage.key(i));
-            }
-        console.log(this.todoItems);
-        }
-    }
 }
 </script>
 

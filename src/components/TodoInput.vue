@@ -21,9 +21,9 @@ export default {
         addTodo() {
             if(this.newTodoItem!=="") {
                 var value = this.newTodoItem && this.newTodoItem.trim();
-                localStorage.setItem(value, value);
+                // 상위 컴포넌트에 이벤트 관련하여 전달할 때 this.$emit을 사용, v-on이 있는 상위 컴포넌트로 신호를 보낸다. 
+                this.$emit('addTodo', value);
                 this.clearInput();
-                console.log(value);
             }
         },
         clearInput() {
