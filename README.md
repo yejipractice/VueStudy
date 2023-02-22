@@ -1,24 +1,3 @@
-# todo-list
+끝!
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+뷰 고급 개발자 부록 나중에 보기 .. 뷰엑스 렌더링 부분 
