@@ -7,7 +7,7 @@
     <TodoInput v-on:addTodo="addTodo"/>
     <!-- 하위 컴포넌트에 데이터 넘겨주기 -->
     <TodoList v-bind:propsdata="todoItems"/> 
-    <TodoFooter />
+    <TodoFooter v-on:removeAll="removeAll"/>
   </div>
 </template>
 
@@ -28,6 +28,10 @@ export default {
       // 로컬 스토리지에 데이터를 추가하는 로직 
       localStorage.setItem(todoItem, todoItem);
       this.todoItems.push(todoItem);
+    },
+    removeAll () {
+      localStorage.clear();
+      this.todoItems = [];
     }
   },  
   components: {
