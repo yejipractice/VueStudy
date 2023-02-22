@@ -19,9 +19,10 @@ export default {
     props: ['propsdata'],
     methods: {
         removeTodo(todoItem, index) {
-            console.log("clicked", todoItem, index);
-            localStorage.removeItem(todoItem);
-            this.todoItems.splice(index, 1);  // 배열의 특정 인덱스에서 부여한 숫자 개수만큼 인덱스 및 값 삭제
+            // console.log("clicked", todoItem, index);
+            // localStorage.removeItem(todoItem);
+            // this.todoItems.splice(index, 1);  // 배열의 특정 인덱스에서 부여한 숫자 개수만큼 인덱스 및 값 삭제
+            this.$emit('removeTodo', todoItem, index);
         }
     },
 }

@@ -5,8 +5,8 @@
     <TodoHeader />
     <!-- 하위 컴포넌트에 메소드 넘겨주기 -->
     <TodoInput v-on:addTodo="addTodo"/>
-    <!-- 하위 컴포넌트에 데이터 넘겨주기 -->
-    <TodoList v-bind:propsdata="todoItems"/> 
+    <!-- 하위 컴포넌트에 데이터 넘겨주기, @removeTodo는 v-on:removeTodo의 약식 -->
+    <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo"/> 
     <TodoFooter v-on:removeAll="removeAll"/>
   </div>
 </template>
@@ -32,6 +32,10 @@ export default {
     removeAll () {
       localStorage.clear();
       this.todoItems = [];
+    },
+    removeTodo(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1);
     }
   },  
   components: {
